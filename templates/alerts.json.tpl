@@ -1,0 +1,1 @@
+{"vehicle_id":"vehicle-001","event_id":"%UNIQUE%","event_type":"alerts","observed_at_ns":"%TIMESTAMPNS%","alert":{"code":"SPEED_LIMIT","severity":"warning","message":"Vehicle speed threshold exceeded"}}

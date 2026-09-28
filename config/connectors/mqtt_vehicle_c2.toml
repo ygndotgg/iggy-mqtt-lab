@@ -1,0 +1,37 @@
+type = "source"
+key = "mqtt_vehicle_c2"
+enabled = true
+version = 1
+name = "Vehicle MQTT source C2"
+path = "target/release/libiggy_connector_mqtt_source"
+plugin_config_format = "json"
+verbose = false
+benchmark = true
+
+[[streams]]
+stream = "vehicle-telemetry"
+topic = "tire-fuel"
+schema = "raw"
+batch_length = 500
+linger_time = "10ms"
+
+[plugin_config]
+broker_url = "mqtt://127.0.0.1:1883"
+subscriptions = ["vehicle/+/tire", "vehicle/+/fuel"]
+protocol = "mqtt5"
+qos = 1
+client_id = "iggy-mqtt-vehicle-c2"
+username = "mqtt-test"
+password = "mqtt-password"
+clean_start = false
+session_expiry_interval = 3600
+keep_alive = "30s"
+poll_timeout = "1s"
+request_capacity = 256
+batch_size = 500
+batch_timeout = "50ms"
+verbose_logging = false
+
+[plugin_config.subscription_qos]
+"vehicle/+/tire" = 1
+"vehicle/+/fuel" = 1
